@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - ToDo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="payment.html">Payments</a></li>
+          </ul>
+        </nav>
+        <button id="logoutBtn">Logout</button>
+      </aside>
+      <main class="main-content">
+        <h1 id="welcomeMessage">Welcome, User</h1>
+        <div class="card">
+          <h2>To-Do List</h2>
+          <form id="todoForm" class="todo-form">
+            <input
+              type="text"
+              id="todoInput"
+              placeholder="Add a new task..."
+              required
+            />
+            <button type="submit">Add Task</button>
+          </form>
+          <ul id="todoList" class="todo-list"></ul>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
