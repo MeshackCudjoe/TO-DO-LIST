@@ -137,6 +137,7 @@ button:active {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .sidebar nav ul {
@@ -249,42 +250,75 @@ button:active {
   transform: translateY(0);
 }
 
-/* Responsive design */
+/* Mobile-specific styles */
+.sidebar-buttons {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
   }
 
   .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 1.5em 1em;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: -260px;
+    height: 100%;
+    width: 260px;
+    padding: 1em;
   }
 
-  .sidebar nav ul {
+  .sidebar.open {
+    transform: translateX(260px);
+  }
+
+  .sidebar-buttons {
     display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+    padding-bottom: 1.5em;
   }
 
-  .sidebar nav li {
-    flex-grow: 1;
-    text-align: center;
+  .menu-btn,
+  .close-btn {
+    background: var(--text-color);
+    color: white;
+    padding: 0.8em 1.2em;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
   }
 
-  .sidebar nav li a {
-    padding: 1em 0.5em;
+  .menu-btn {
+    display: block;
+  }
+
+  .close-btn {
+    display: none;
+  }
+
+  .sidebar.open + .main-content .sidebar-buttons .menu-btn {
+    display: none;
+  }
+
+  .sidebar.open + .main-content .sidebar-buttons .close-btn {
+    display: block;
   }
 
   .main-content {
-    padding: 1.5em;
+    padding-top: 5em;
   }
 
+  .todo-form,
   .form-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
-  .todo-form {
-    flex-direction: column;
+  .card {
+    padding: 1.5em;
   }
 }

@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="app-container">
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <nav>
           <ul>
             <li><a href="dashboard.html" class="active">Dashboard</a></li>
@@ -19,6 +19,10 @@
         <button id="logoutBtn">Logout</button>
       </aside>
       <main class="main-content">
+        <div class="sidebar-buttons">
+          <button class="menu-btn" id="openSidebarBtn">&#9776;</button>
+          <button class="close-btn" id="closeSidebarBtn">&times;</button>
+        </div>
         <h1 id="welcomeMessage">Welcome, User</h1>
         <div class="card">
           <h2>To-Do List</h2>

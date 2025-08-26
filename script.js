@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
       todos.forEach((todo, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-					<span>${todo}</span>
-					<div class="actions">
-						<button onclick="editItem('todos', ${index})">Edit</button>
-						<button onclick="deleteItem('todos', ${index})">Delete</button>
-					</div>
-				`;
+          <span>${todo}</span>
+          <div class="actions">
+            <button onclick="editItem('todos', ${index})">Edit</button>
+            <button onclick="deleteItem('todos', ${index})">Delete</button>
+          </div>
+        `;
         todoList.appendChild(li);
       });
     };
@@ -113,17 +113,17 @@ document.addEventListener("DOMContentLoaded", () => {
       members.forEach((member, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-					<div>
-						<p><strong>Name:</strong> ${member.name}</p>
-						<p><strong>Email:</strong> ${member.email}</p>
-						<p><strong>DOB:</strong> ${member.dob}</p>
-						<p><strong>Description:</strong> ${member.description}</p>
-					</div>
-					<div class="actions">
-						<button onclick="editItem('members', ${index})">Edit</button>
-						<button onclick="deleteItem('members', ${index})">Delete</button>
-					</div>
-				`;
+          <div>
+            <p><strong>Name:</strong> ${member.name}</p>
+            <p><strong>Email:</strong> ${member.email}</p>
+            <p><strong>DOB:</strong> ${member.dob}</p>
+            <p><strong>Description:</strong> ${member.description}</p>
+          </div>
+          <div class="actions">
+            <button onclick="editItem('members', ${index})">Edit</button>
+            <button onclick="deleteItem('members', ${index})">Delete</button>
+          </div>
+        `;
         membersList.appendChild(li);
       });
     };
@@ -168,16 +168,16 @@ document.addEventListener("DOMContentLoaded", () => {
       payments.forEach((payment, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-					<div>
-						<p><strong>Mode:</strong> ${payment.mode}</p>
-						<p><strong>Amount:</strong> $${payment.amount}</p>
-						<p><strong>Reference:</strong> ${payment.reference}</p>
-					</div>
-					<div class="actions">
-						<button onclick="editItem('payments', ${index})">Edit</button>
-						<button onclick="deleteItem('payments', ${index})">Delete</button>
-					</div>
-				`;
+          <div>
+            <p><strong>Mode:</strong> ${payment.mode}</p>
+            <p><strong>Amount:</strong> $${payment.amount}</p>
+            <p><strong>Reference:</strong> ${payment.reference}</p>
+          </div>
+          <div class="actions">
+            <button onclick="editItem('payments', ${index})">Edit</button>
+            <button onclick="deleteItem('payments', ${index})">Delete</button>
+          </div>
+        `;
         paymentHistory.appendChild(li);
       });
     };
@@ -257,5 +257,20 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("addPaymentBtn").textContent = "Update Payment";
       }
     };
+  }
+
+  // New sidebar toggle logic
+  const sidebar = document.getElementById("sidebar");
+  const openBtn = document.getElementById("openSidebarBtn");
+  const closeBtn = document.getElementById("closeSidebarBtn");
+
+  if (sidebar && openBtn && closeBtn) {
+    openBtn.addEventListener("click", () => {
+      sidebar.classList.add("open");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("open");
+    });
   }
 });
